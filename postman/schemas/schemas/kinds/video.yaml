@@ -1,0 +1,22 @@
+properties:
+    id:
+        type: string
+    kind:
+        type: string
+    title:
+        type: string
+    subtitle:
+        type: string
+    summary:
+        type: string
+    dateString:
+        type: string
+    publishedDate:
+        $ref: './schemas/partials/date.yaml'
+    updatedDate:
+        $ref: './schemas/partials/date.yaml'
+required:
+    - name
+example:
+    id: 98734534
+    kind: Vidoe

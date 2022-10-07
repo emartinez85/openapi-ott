@@ -1,0 +1,125 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'NBCUniversal Local OTT API'
+  description: An API build from the bones of the App API.
+servers:
+- url: https://{environment}.{domain}.com/{basePath}/{version}
+  variables:
+    environment:
+      enum:
+        - 'dev'
+        - 'stage'
+        - 'uat'
+        - 'www'
+      default: 'www'
+    domain:
+      default: 'nbcnewyork'
+    basePath:
+      enum:
+        - 'apps/ott'
+      default: 'apps/ott'
+    version:
+      default: 'v1'
+paths:
+  /term/{termId}:
+    get:
+      summary: Get content from term.
+      responses:
+        '200':
+          description: The term corresponding to the provided `termID`
+          content:
+            application/json:
+              schema:
+                $ref: './schemas/kinds/video.yaml'
+        404:
+          description: No term found for the provided `termID`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    parameters:
+      - name: termId
+        description: The unique identifier of a term. A term is either a Category or Collection within WordPress
+        in: path
+        required: true
+        schema:
+          $ref: './parameters/termId.yaml'
+      - name: platform
+        description: Enum for which platform is making the API request
+        in: query
+        required: true
+        schema:
+          $ref: './parameters/platform.yaml'
+  /config:
+    get:
+      summary: Retrieve content from a term.
+      responses:
+        '200':
+          description: The term corresponding to the provided `termID`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Spacecraft'
+        404:
+          description: No term found for the provided `termID`
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    parameters:
+      - name: platform
+        description: Enum for which platform is making the API request
+        in: query
+        required: true
+        schema:
+          $ref: './parameters/platform.yaml'
+components:
+  schemas:
+    SpacecraftId:
+      description: The unique identifier of a spacecraft
+      type: string
+    TermId:
+      description: The unique identifier of a term. A term is either a Category or Collection within WordPress
+      type: string
+    Spacecraft:
+      type: object
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          $ref: '#/components/schemas/SpacecraftId'
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - capsule
+            - probe
+            - satellite
+            - spaceplane
+            - station
+        description:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
