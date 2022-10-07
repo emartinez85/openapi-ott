@@ -1,0 +1,15 @@
+type: object
+properties:
+    credit:
+        type: string
+        default: ''
+    caption:
+        type: string
+        default: ''
+    small:
+        type: string
+    uri:
+        type: string
+required:
+    - small
+    - large

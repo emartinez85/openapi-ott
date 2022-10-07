@@ -1,0 +1,14 @@
+type: object
+properties:
+    size:
+        type: string
+        enum:
+            - XL
+            - L
+            - M
+            - S
+    webLinkut:
+        type: boolean
+required:
+    - size
+    - webLinkout

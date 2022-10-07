@@ -1,0 +1,27 @@
+id = 247ca087-b212-4701-b9ec-6545986108da
+
+[relations]
+
+[relations.collections]
+rootDirectory = postman/collections
+
+[relations.collections.metaData]
+
+[relations.apiDefinition]
+rootDirectory = postman/schemas
+files[] = {"path":"index.yaml","metaData":{}}
+files[] = {"path":"parameters/platform.yaml","metaData":{}}
+files[] = {"path":"parameters/termId.yaml","metaData":{}}
+files[] = {"path":"schemas/kinds/video.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/arrayOfStrings.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/attributes.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/date.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/eyebrow.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/featuredImage.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/header.yaml","metaData":{}}
+files[] = {"path":"schemas/partials/primaryTerm.yaml","metaData":{}}
+files[] = {"path":"schemas/term.yaml","metaData":{}}
+
+[relations.apiDefinition.metaData]
+type = openapi:3
+rootFiles[] = index.yaml

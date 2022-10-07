@@ -1,3 +1,4 @@
+type: object
 properties:
     id:
         type: string
@@ -12,11 +13,93 @@ properties:
     dateString:
         type: string
     publishedDate:
-        $ref: './schemas/partials/date.yaml'
+        $ref: ../partials/date.yaml
     updatedDate:
-        $ref: './schemas/partials/date.yaml'
+        $ref: ../partials/date.yaml
+    networkObjectID:
+        type: string
+    uri:
+        type: string
+    url:
+        type: string
+    path:
+        type: string
+    attributes:
+        $ref: ../partials/attributes.yaml
+    category:
+        $ref: ../partials/arrayOfStrings.yaml
+    collections:
+        $ref: ../partials/arrayOfStrings.yaml
+    eyebrow:
+        $ref: ../partials/eyebrow.yaml
+    featuredImage:
+        $ref: ../partials/featuredImage.yaml
+    primaryCategory:
+        $ref: ../partials/primaryTerm.yaml
+    primaryTag:
+        $ref: ../partials/primaryTerm.yaml
+    tags:
+        $ref: ../partials/arrayOfStrings.yaml
+    byline:
+        $ref: ../partials/arrayOfStrings.yaml
+    originatingMarket:
+        type: string
+    contentSource:
+        type: string
+    nationalized:
+        type: boolean
+    syndicateID:
+        type: string
+    localID:
+        type: string
+    dataSource:
+        type: string
+    disablePreroll:
+        type: boolean
+    forcePreroll:
+        type: boolean
+    fwSSID:
+        type: string
+    length:
+        type: integer
+    liveStream:
+        type: boolean
+    pid:
+        type: string
+    sensitivity:
+        type: string
+    smil:
+        type: string
+    videoID:
+        type: string
+    terms:
+        $ref: ../partials/arrayOfStrings.yaml
 required:
-    - name
-example:
-    id: 98734534
-    kind: Vidoe
+    - id
+    - kind
+    - title
+    - dateString
+    - networkObjectID
+    - uri
+    - url
+    - path
+    - attributes
+    - categories
+    - collections
+    - eyebrow
+    - featuredImage
+    - primaryCategory
+    - primaryTag
+    - tags
+    - nationalized
+    - syndicateID
+    - localID
+    - disablePreroll
+    - forcePreroll
+    - fwSSID
+    - length
+    - liveStream
+    - pid
+    - smil
+    - videoID
+    - terms
