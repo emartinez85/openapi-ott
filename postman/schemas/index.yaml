@@ -18,13 +18,13 @@ servers:
     basePath:
       enum:
         - 'apps/ott'
+        - 'apps/mobile'
       default: 'apps/ott'
     version:
       default: 'v1'
 paths:
   /term/{termId}:
     get:
-      summary: Get content from term.
       responses:
         '200':
           description: The term corresponding to the provided `termID`
